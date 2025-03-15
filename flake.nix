@@ -12,9 +12,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin.url = "github:catppuccin/nix";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, spicetify-nix, fabric, ... }@inputs:
+  outputs = { nixpkgs, home-manager, spicetify-nix, fabric, catppuccin, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -22,7 +28,18 @@
       homeConfigurations."zeph" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          catppuccin.homeManagerModules.catppuccin  # Include the Catppuccin module
+          
+          { 
+          wayland.windowManager.hyprland = {
+            enable = true;
+            # set the flake package
+            package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+            portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+          };}
+        ];
 
         extraSpecialArgs = { inherit inputs fabric; }; # Pass fabric
       };

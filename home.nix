@@ -5,12 +5,15 @@ let
   fabricPkg = inputs.fabric.packages.${pkgs.system}.default;
 in
 {
+  imports = [
+    ./config/hypr/hyprland.nix
+  ];
   home.username = "zeph";
   home.homeDirectory = "/home/zeph";
   gtk.enable = true;
   qt.enable = true;
   home.stateVersion = "24.11";
-
+  catppuccin.flavor="macchiato";
   home.packages = with pkgs; [
     spicetify
     zellij
@@ -22,19 +25,40 @@ in
     fabricPkg
     cairo
     # hyprland
-   ags
-    rofi-wayland
+    ags
     waybar
-    networkmanager_dmenu
-    swww
     waypaper
-     udis86
-    libxkbcommon
-    libuuid
-    pango
-    mesa
+    copyq
+    avizo 
+    rofi
+    swww
+    hyprshade
+    networkmanager_dmenu
   ];
 
+
+
+  # # Theming
+  # gtk = {
+  #   theme = {
+  #     name = "catppuccin-gtk";
+  #     package = pkgs.catppuccin-gtk.override {
+  #       accents = [ "mauve" ];
+  #       variant = "macchiato";
+  #     };
+  #   };
+  #     iconTheme.name = "Papirus-Dark";
+  # };
+  #
+  # qt = {
+  #   platformTheme.name = "gtk"; # Ensures Qt apps follow the GTK theme
+  #   style = {
+  #     name = "kvantum-dark";
+  #     package = pkgs.catppuccin-kde.override {
+  #       accents = [ "mauve" ];
+  #     };
+  #   };
+  # };
   home.sessionVariables = {
     EDITOR = "nvim";
   };

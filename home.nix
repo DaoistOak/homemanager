@@ -34,6 +34,8 @@ in
     swww
     hyprshade
     networkmanager_dmenu
+    direnv
+    steam
   ];
 
 

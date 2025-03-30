@@ -35,7 +35,6 @@ in
     hyprshade
     networkmanager_dmenu
     direnv
-    steam
   ];
 
 

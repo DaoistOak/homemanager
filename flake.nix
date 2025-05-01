@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    vencord.url = "github:diamondburned/nix-vencord";
     fabric = {
       url = "github:Fabric-Development/fabric";
       inputs.nixpkgs.follows = "nixpkgs";

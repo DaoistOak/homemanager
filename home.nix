@@ -3,6 +3,7 @@
 let
   spicetify = import ./pkgs/spicetify.nix { inherit pkgs inputs; };
   fabricPkg = inputs.fabric.packages.${pkgs.system}.default;
+  vencord-discord = inputs.vencord.packages.${pkgs.system}.discord;
 in
 {
   imports = [
@@ -35,6 +36,8 @@ in
     hyprshade
     networkmanager_dmenu
     direnv
+    mangohudo
+    vencord-discord
   ];
 
 

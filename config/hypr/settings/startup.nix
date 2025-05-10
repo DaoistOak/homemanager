@@ -30,8 +30,8 @@
         "dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE"
         
         # Launch waybar with the specified configuration
-        "waybar -c ~/.config/hypr/waybar/config.json -s ~/.config/hypr/waybar/style.css"
-        
+        # "waybar -c ~/.config/hypr/waybar/config.json -s ~/.config/hypr/waybar/style.css"
+        "hyprpanel" 
         # Launch notifications service (swaync or mako)
         "swaync"
         

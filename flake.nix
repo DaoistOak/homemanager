@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    vencord.url = "github:diamondburned/nix-vencord";
     fabric = {
       url = "github:Fabric-Development/fabric";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,12 +18,18 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
-  outputs = { nixpkgs, home-manager, spicetify-nix, fabric, catppuccin, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, fabric, catppuccin, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          inputs.hyprpanel.overlay
+        ];
+    };
     in {
       homeConfigurations."zeph" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -41,7 +46,6 @@
             portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
           };}
         ];
-
         extraSpecialArgs = { inherit inputs fabric; }; # Pass fabric
       };
     };

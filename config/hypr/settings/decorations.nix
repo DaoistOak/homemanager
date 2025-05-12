@@ -8,8 +8,8 @@
         "gaps_in" = 3;
         "gaps_out" = 4;
         "border_size" = 2;
-        "col.active_border" = "rgb(c6a0f6)";
-        "col.inactive_border" = "rgb(181926)";
+        "col.active_border" = "$accent";
+        "col.inactive_border" = "$base";
       };
 
       # Decoration settings
@@ -34,7 +34,7 @@
           "offset" = "4, 4";
           "render_power" = 1;
           "ignore_window" = true;
-          "color" = "rgb(363a4f)";
+          "color" = "$crust";
           # col.shadow = "$accent";
           # col.shadow_inactive = "$base";
         };

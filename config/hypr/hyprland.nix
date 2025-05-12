@@ -11,10 +11,12 @@
     ./settings/plugins.nix
     ./settings/startup.nix
     ./settings/windowrules.nix
+    ./hyprlock.nix
+    ./hypridle.nix
+    ./scripts/hyprlock.nix
   ];
   wayland.windowManager.hyprland = {
     enable = true;
 
   };
-
 }

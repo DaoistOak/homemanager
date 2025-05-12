@@ -33,8 +33,7 @@
         # "waybar -c ~/.config/hypr/waybar/config.json -s ~/.config/hypr/waybar/style.css"
         "hyprpanel" 
         # Launch notifications service (swaync or mako)
-        "swaync"
-        
+        "/run/current-system/sw/bin/nm-applet" 
         # Volume and brightness services
         "avizo-service"
         
@@ -61,7 +60,7 @@
         "~/bin/keyboard_led_control.sh"
         
         # Launching hyprshade for window effects
-        "hyprshade auto"
+        "hyprsunset"
       ];
   };
 }

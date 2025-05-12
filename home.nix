@@ -13,7 +13,6 @@ in
   gtk.enable = true;
   qt.enable = true;
   home.stateVersion = "24.11";
-  catppuccin.flavor="macchiato";
   home.packages = with pkgs; [
     spicetify
     zellij
@@ -32,7 +31,6 @@ in
     avizo 
     rofi
     swww
-    hyprshade
     networkmanager_dmenu
     networkmanager
     direnv
@@ -45,37 +43,38 @@ in
     wl-clipboard
     upower
     gvfs
+    pcmanfm
+    hyprlock
+    hyprprop
+    hyprnome
+    hyprpolkitagent
+    hyprsunset
+    grim
+    hypridle
   ];
 
 
 
-  # # Theming
-  # gtk = {
-  #   theme = {
-  #     name = "catppuccin-gtk";
-  #     package = pkgs.catppuccin-gtk.override {
-  #       accents = [ "mauve" ];
-  #       variant = "macchiato";
-  #     };
-  #   };
-  #     iconTheme.name = "Papirus-Dark";
-  # };
-  #
-  # qt = {
-  #   platformTheme.name = "gtk"; # Ensures Qt apps follow the GTK theme
-  #   style = {
-  #     name = "kvantum-dark";
-  #     package = pkgs.catppuccin-kde.override {
-  #       accents = [ "mauve" ];
-  #     };
-  #   };
-  # };
+   # Theming
+   gtk = {
+    theme = {
+      name = "catppuccin-macchiato-mauve-standard";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "mauve" ];
+        variant = "macchiato";
+      };
+    };
+      iconTheme.name = "Papirus-Dark";
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
+    QT_QPA_PLATFORMTHEME = "kvantum";
+    QT_STYLE_OVERRIDE   = "Catppuccin-Macchiato";
   };
 
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
-
+  systemd.user.startServices = true;
   # Include the keyboard LED control module
 }

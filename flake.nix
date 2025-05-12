@@ -37,7 +37,6 @@
         modules = [
           ./home.nix
           catppuccin.homeManagerModules.catppuccin  # Include the Catppuccin module
-          
           { 
           wayland.windowManager.hyprland = {
             enable = true;

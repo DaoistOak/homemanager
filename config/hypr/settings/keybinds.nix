@@ -2,7 +2,10 @@
 {
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
-    
+    bindm = [
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
+      ];
     bind =
       [
         # Show Keybinds
@@ -10,10 +13,6 @@
         # Scroll through workspaces with super+scroll wheel
         "$mod, mouse_down, workspace, e-1"
         "$mod, mouse_up, workspace, e+1"
-
-        # Mouse actions
-        "$mod, mouse:272, movewindow"
-        # "$mod, mouse:273, resizewindow"
 
         # Basic actions
         "$mod, C, killactive"
@@ -41,7 +40,7 @@
         "$mod CONTROL, down, resizeactive, 0 50"
 
         # Media and volume controls
-        ", XF86PowerOff, exec, ~/.config/hypr/rofi/script/powermenu.sh"
+        ", XF86PowerOff, exec, hyprpanel t powermenu"
         ", XF86AudioRaiseVolume, exec, volumectl -du up"
         ", XF86AudioLowerVolume, exec, volumectl -du down"
         ", XF86AudioMute, exec, volumectl -d toggle-mute"
@@ -59,17 +58,14 @@
         "$mod ALT, P, exec, ~/bin/colorpicker"
 
         # Screenlock
-        "$mod, L, exec, ~/.config/hypr/scripts/hyprlock.sh"
-
         # Clipboard
         "$mod, V, exec, copyq menu"
 
         # Launch programs
         "$mod, RETURN, exec, kitty"
-        "$mod, F, exec, pcmanfm-qt"
+        "$mod, F, exec, pcmanfm"
         "$mod, H, exec, kitty htop"
         "$mod ALT, H, exec, kitty btop"
-        "$mod, M, exec, spotify"
         "$mod ALT, RETURN, exec, alacritty"
         "$mod, W, exec, flatpak run app.zen_browser.zen"
         "$mod CONTROL, W, exec, firefox -P minimalfox"
@@ -84,14 +80,16 @@
         "$mod, G, exec, steam"
 
         # Other applications
-        "$mod, N, exec, swaync-client -t -sw"
+        "$mod ALT, N, exec, hyprpanel t notificationsmenu"
         "$mod, SUPER_L, exec, ~/.config/hypr/rofi/script/launcher.sh"
-        "$mod, B, exec, ~/.config/hypr/rofi/script/bluetooth.sh"
-        "$mod, Period, exec, ~/.config/hypr/rofi/script/emoji.sh"
-        "$mod, X, exec, ~/.config/hypr/rofi/script/powermenu.sh"
-        "$mod, T, exec, ~/.config/hypr/rofi/script/todo.sh"
+        "$mod, B, exec, hyprpanel t bluetoothmenu"
+        "$mod, Period, exec, plasma-emojier"
+        "$mod, X, exec, hyprpanel t powermenu"
         "$mod, D, exec, waypaper"
-        "$mod ALT, N, exec, networkmanager_dmenu"
+        "$mod ALT, S, exec, hyprpanel t settings-dialog"
+        "$mod, Q, exec, hyprpanel t dashboardmenu"
+        "$mod, M, exec, hyprpanel t mediamenu"
+        "$mod, N, exec, hyprpanel t networkmenu"
 
         # Passthrough
         "$mod SHIFT, Escape, submap, passthru"

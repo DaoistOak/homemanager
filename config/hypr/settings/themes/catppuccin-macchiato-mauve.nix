@@ -1,6 +1,6 @@
 
 { config, lib, pkgs, ... }: {
-xdg.configFile."hypr/themes/catppuccin-macchiato-auto".text = ''
+xdg.configFile."hypr/themes/colors".text = ''
 
   $accent = $mauve
   

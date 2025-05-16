@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
 xdg.configFile."hypr/hyprlock.conf".text = ''
-  source = $HOME/.config/hypr/themes/catppuccin-macchiato-auto
+  source = $HOME/.config/hypr/themes/colors
   $font=JetBrains Mono
 
 # GENERAL

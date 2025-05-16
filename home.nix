@@ -51,6 +51,8 @@ in
     hyprsunset
     grim
     hypridle
+    hyprlandPlugins.hyprscroller
+    hyprlandPlugins.hyprgrass
   ];
 
 
@@ -70,7 +72,7 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     QT_QPA_PLATFORMTHEME = "kvantum";
-    QT_STYLE_OVERRIDE   = "Catppuccin-Macchiato";
+    QT_STYLE_OVERRIDE   = "kvantum";
   };
 
   programs.home-manager.enable = true;

@@ -1,11 +1,11 @@
 {configs, inputs, pkgs, ...}: 
 {
   imports = [
-    ./themes/catppuccin-macchiato-auto.nix
+    ./themes/catppuccin-macchiato-mauve.nix
   ];
   wayland.windowManager.hyprland.settings = {
   source = [
-      "~/.config/hypr/themes/catppuccin-macchiato-auto"
+      "~/.config/hypr/themes/colors"
     ];
   };
 }
